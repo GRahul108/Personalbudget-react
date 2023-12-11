@@ -44,8 +44,8 @@ const LoginPage = (props) => {
       history('/')
     })
     .catch((error) => {
-      setError('');
-      setSuccessMessage('Invalid username or password');
+      setError('Invalid username or password');
+      setSuccessMessage('');
     })
   };
 

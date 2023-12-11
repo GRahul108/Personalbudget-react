@@ -24,13 +24,13 @@ function App() {
 
 useEffect(() => {
   const isLogdIn = localStorage.getItem('isLoggedIn') === 'true';
-  console.log("CHECK", isLogdIn);
+ // console.log("CHECK", isLogdIn);
   if (isLogdIn) {
     const storedExpirationTime = parseInt(localStorage.getItem('expirationTime'), 10);
     if (storedExpirationTime && storedExpirationTime > Date.now()) {
 
       intervalIdRef.current = setInterval(() => {
-        console.log("CHEDKING", storedExpirationTime, Date.now());
+       // console.log("CHEDKING", storedExpirationTime, Date.now());
         const remainingTime = storedExpirationTime - Date.now();
         
         if (remainingTime <= 0) {
@@ -99,7 +99,7 @@ const setLoggedIn = (flag) => {
   return (
     <AuthProvider>
       <Router>
-        <Menu  />
+        <Menu  logout={handleLogout}/>
         <Hero />
         <div className="mainContainer">
           <Routes>

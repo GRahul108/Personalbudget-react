@@ -2,16 +2,9 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import { LogoutPage } from "../LogoutPage/LogoutPage";
 
-function Menu(){
-  const { isLoggedIn, logout } = useAuth();
-  const handlelogout = () => {
-    
-    logout();
-    
-    localStorage.removeItem("userId");
-    localStorage.removeItem("token");
-    localStorage.removeItem('expirationTime');
-  };
+function Menu(props){
+  const { isLoggedIn } = useAuth();
+  
   return (
     <div>
       <nav>
@@ -32,7 +25,7 @@ function Menu(){
                 <Link to="/Visual">Visuals</Link>
               </li>
               <li>
-                <Link to="/login" onClick={handlelogout}>
+                <Link to="/login" onClick={props.logout}>
                   Logout
                 </Link>
               </li>
