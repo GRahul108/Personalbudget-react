@@ -30,7 +30,7 @@ const LoginPage = (props) => {
 
   
     axios
-    .post('http://localhost:3002/login', formData)
+    .post('https://personalbudget-server.onrender.com/login', formData)
     .then((response) => {
       setSuccessMessage(response.data.message);
       if(response.data.user) {
